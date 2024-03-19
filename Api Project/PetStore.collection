@@ -1,0 +1,1783 @@
+{
+	"info": {
+		"_postman_id": "49558b49-4cbe-4bbe-b854-9b609fc596ba",
+		"name": "PetStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24707453",
+		"_collection_link": "https://dark-star-711967.postman.co/workspace/Project-PetStore~364d32f1-1f10-4e25-bac0-22a6772c641d/collection/24707453-49558b49-4cbe-4bbe-b854-9b609fc596ba?action=share&source=collection_link&creator=24707453"
+	},
+	"item": [
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "Add new Pet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Check pet ID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"id\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check pet id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"check date type of pet id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).id).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check expected pet id is: \"+JSON.parse(request.data).id,function(){\r",
+									"    pm.expect(JSON.parse(request.data).id).to.be.equal(JSON.parse(responseBody).id)\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check Category ID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category).to.have.property(\"id\")\r",
+									"})\r",
+									"pm.test(\"Check Category id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category.id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).category.id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of category id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).category.id).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected category id is: \"+JSON.parse(request.data).category.id,function(){\r",
+									"    pm.expect(JSON.parse(request.data).category.id).to.be.equal(JSON.parse(responseBody).category.id)\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check Category Name exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category).to.have.property(\"name\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check Category Name not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category.name).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).category.name).to.not.be.equal(undefined)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"check date type of category name\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).category.name).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check expected category name is: \"+JSON.parse(request.data).category.name,function(){\r",
+									"    pm.expect(JSON.parse(request.data).category.name).to.be.equal(JSON.parse(responseBody).category.name)\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check pet name exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"name\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check pet name not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).name).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).name).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of pet name\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).name).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected pet name is: \"+JSON.parse(request.data).name,function(){\r",
+									"    pm.expect(JSON.parse(request.data).name).to.be.equal(JSON.parse(responseBody).name)\r",
+									"})\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check photoUrls exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"photoUrls\")\r",
+									"})\r",
+									"pm.test(\"Check photoUrls not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).photoUrls).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).photoUrls).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of photoUrls\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).photoUrls).to.be.equal('object')\r",
+									"})\r",
+									"pm.test(\"Check expected photoUrls is: \"+JSON.parse(request.data).photoUrls[0],function(){\r",
+									"    pm.expect(JSON.parse(request.data).photoUrls[0]).to.be.equal(JSON.parse(responseBody).photoUrls[0])\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check tags ID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0]).to.have.property(\"id\")\r",
+									"})\r",
+									"pm.test(\"Check tags id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of tags id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).tags[0].id).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected tags id is: \"+JSON.parse(request.data).tags[0].id,function(){\r",
+									"    pm.expect(JSON.parse(request.data).tags[0].id).to.be.equal(JSON.parse(responseBody).tags[0].id)\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check tags Name exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0]).to.have.property(\"name\")\r",
+									"})\r",
+									"pm.test(\"Check tags Name not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].name).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].name).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of tags name\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).tags[0].name).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected tags name is: \"+JSON.parse(request.data).tags[0].name,function(){\r",
+									"    pm.expect(JSON.parse(request.data).tags[0].name).to.be.equal(JSON.parse(responseBody).tags[0].name)\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check status exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"status\")\r",
+									"})\r",
+									"pm.test(\"Checkstatus not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of status\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).status).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected status is: \"+JSON.parse(request.data).status,function(){\r",
+									"    pm.expect(JSON.parse(request.data).status).to.be.equal(JSON.parse(responseBody).status)\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 15,\r\n  \"category\": {\r\n    \"id\": 2,\r\n    \"name\": \"birds\"\r\n  },\r\n  \"name\": \"koko\",\r\n  \"photoUrls\": [\r\n    \"image\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 1,\r\n      \"name\": \"tag 2\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}pet",
+							"host": [
+								"{{BaseURL}}pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pet",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"// pet ID\r",
+									"pm.test(\"Check pet ID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"id\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check pet id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"check date type of pet id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).id).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check expected pet id is: \"+JSON.parse(request.data).id,function(){\r",
+									"    pm.expect(JSON.parse(request.data).id).to.be.equal(JSON.parse(responseBody).id)\r",
+									"})\r",
+									"\r",
+									"// category ID\r",
+									"pm.test(\"Check Category ID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category).to.have.property(\"id\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check Category id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category.id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).category.id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of category id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).category.id).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check expected category id is: \"+JSON.parse(request.data).category.id,function(){\r",
+									"    pm.expect(JSON.parse(request.data).category.id).to.be.equal(JSON.parse(responseBody).category.id)\r",
+									"})\r",
+									"\r",
+									"// category name\r",
+									"pm.test(\"Check Category Name exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category).to.have.property(\"name\")\r",
+									"})\r",
+									"pm.test(\"Check Category Name not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category.name).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).category.name).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of category name\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).category.name).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected category name is: \"+JSON.parse(request.data).category.name,function(){\r",
+									"    pm.expect(JSON.parse(request.data).category.name).to.be.equal(JSON.parse(responseBody).category.name)\r",
+									"})\r",
+									"\r",
+									"// check pet name\r",
+									"pm.test(\"Check pet name exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"name\")\r",
+									"})\r",
+									"pm.test(\"Check pet name not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).name).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).name).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of pet name\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).name).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected pet name is: \"+JSON.parse(request.data).name,function(){\r",
+									"    pm.expect(JSON.parse(request.data).name).to.be.equal(JSON.parse(responseBody).name)\r",
+									"})\r",
+									"\r",
+									"// check photoUrls\r",
+									"pm.test(\"Check photoUrls exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"photoUrls\")\r",
+									"})\r",
+									"pm.test(\"Check photoUrls not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).photoUrls).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).photoUrls).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of photoUrls\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).photoUrls).to.be.equal('object')\r",
+									"})\r",
+									"pm.test(\"Check expected photoUrls is: \"+JSON.parse(request.data).photoUrls[0],function(){\r",
+									"    pm.expect(JSON.parse(request.data).photoUrls[0]).to.be.equal(JSON.parse(responseBody).photoUrls[0])\r",
+									"})\r",
+									"\r",
+									"//  check tags ID\r",
+									"pm.test(\"Check tags ID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0]).to.have.property(\"id\")\r",
+									"})\r",
+									"pm.test(\"Check tags id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of tags id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).tags[0].id).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected tags id is: \"+JSON.parse(request.data).tags[0].id,function(){\r",
+									"    pm.expect(JSON.parse(request.data).tags[0].id).to.be.equal(JSON.parse(responseBody).tags[0].id)\r",
+									"})\r",
+									"\r",
+									"// check tags name\r",
+									"pm.test(\"Check tags Name exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0]).to.have.property(\"name\")\r",
+									"})\r",
+									"pm.test(\"Check tags Name not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].name).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].name).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of tags name\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).tags[0].name).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected tags name is: \"+JSON.parse(request.data).tags[0].name,function(){\r",
+									"    pm.expect(JSON.parse(request.data).tags[0].name).to.be.equal(JSON.parse(responseBody).tags[0].name)\r",
+									"})\r",
+									"\r",
+									"// check status\r",
+									"pm.test(\"Check status exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"status\")\r",
+									"})\r",
+									"pm.test(\"Checkstatus not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of status\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).status).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected status is: \"+JSON.parse(request.data).status,function(){\r",
+									"    pm.expect(JSON.parse(request.data).status).to.be.equal(JSON.parse(responseBody).status)\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 15,\r\n  \"category\": {\r\n    \"id\": 2,\r\n    \"name\": \"birds\"\r\n  },\r\n  \"name\": \"kokoo\",\r\n  \"photoUrls\": [\r\n    \"image\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 1,\r\n      \"name\": \"tag 2\"\r\n    }\r\n  ],\r\n  \"status\": \"sold\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}pet",
+							"host": [
+								"{{BaseURL}}pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Pet by Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"for(i=0;i<JSON.parse(responseBody)[0];i++){\r",
+									"pm.test('Check the status in the first pet response ', function () {\r",
+									"    pm.expect(JSON.parse(responseBody)[i]).to.have.property('status');\r",
+									"})}\r",
+									"\r",
+									"pm.test(\"Check pet list not null or undefined\",function(){\r",
+									"  pm.expect(JSON.parse(responseBody)).to.not.be.equal(undefined);\r",
+									"  pm.expect(JSON.parse(responseBody)).to.not.be.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check pets Response list is object\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody)).to.be.equal(\"object\")\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}pet/findByStatus/?status=sold",
+							"host": [
+								"{{BaseURL}}pet"
+							],
+							"path": [
+								"findByStatus",
+								""
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "sold"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Pet by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// pet ID\r",
+									"pm.test(\"Check pet ID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"id\")\r",
+									"})\r",
+									"pm.test(\"Check pet id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of pet id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).id).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"// category ID\r",
+									"pm.test(\"Check Category ID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category).to.have.property(\"id\")\r",
+									"})\r",
+									"pm.test(\"Check Category id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category.id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).category.id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of category id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).category.id).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"// category name\r",
+									"\r",
+									"pm.test(\"Check Category Name exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category).to.have.property(\"name\")\r",
+									"})\r",
+									"pm.test(\"Check Category Name not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).category.name).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).category.name).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of category name\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).category.name).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"\r",
+									"// pet name\r",
+									"pm.test(\"Check pet name exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"name\")\r",
+									"})\r",
+									"pm.test(\"Check pet name not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).name).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).name).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of pet name\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).name).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"//check photoUrls\r",
+									"pm.test(\"Check photoUrls exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"photoUrls\")\r",
+									"})\r",
+									"pm.test(\"Check photoUrls not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).photoUrls).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).photoUrls).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of photoUrls\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).photoUrls).to.be.equal('object')\r",
+									"})\r",
+									"\r",
+									"// check tags ID\r",
+									"pm.test(\"Check tags ID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0]).to.have.property(\"id\")\r",
+									"})\r",
+									"pm.test(\"Check tags id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of tags id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).tags[0].id).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"// check tags name\r",
+									"pm.test(\"Check tags Name exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0]).to.have.property(\"name\")\r",
+									"})\r",
+									"pm.test(\"Check tags Name not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].name).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).tags[0].name).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of tags name\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).tags[0].name).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"\r",
+									"// check status\r",
+									"pm.test(\"Check status exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"status\")\r",
+									"})\r",
+									"pm.test(\"Checkstatus not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of status\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).status).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}pet/15",
+							"host": [
+								"{{BaseURL}}pet"
+							],
+							"path": [
+								"15"
+							],
+							"query": [
+								{
+									"key": "ID",
+									"value": "15",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update with Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"// code\r",
+									"pm.test(\"Check code exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"code\")\r",
+									"})\r",
+									"pm.test(\"Check code not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of code\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).code).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected pet id is: 200\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.be.equal(200)\r",
+									"})\r",
+									"\r",
+									"// Type\r",
+									"pm.test(\"Check Type exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"type\")\r",
+									"})\r",
+									"pm.test(\"Check Type not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).type).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"//  message in response\r",
+									"pm.test(\"Check expected message exists in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"message\")\r",
+									"})\r",
+									"pm.test(\"Check message not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).message).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									" "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "kokooo",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "available",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseURL}}pet/15",
+							"host": [
+								"{{BaseURL}}pet"
+							],
+							"path": [
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"// code\r",
+									"pm.test(\"Check code exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"code\")\r",
+									"})\r",
+									"pm.test(\"Check code not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of code\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).code).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected pet id is: 200\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.be.equal(200)\r",
+									"})\r",
+									"\r",
+									"\r",
+									"// Type\r",
+									"pm.test(\"Check Type exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"type\")\r",
+									"})\r",
+									"pm.test(\"Check Type not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).type).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"\r",
+									"// message in response \r",
+									"pm.test(\"Check expected message exists in response \",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"message\")\r",
+									"})\r",
+									"pm.test(\"Check message not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).message).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}pet/15",
+							"host": [
+								"{{BaseURL}}pet"
+							],
+							"path": [
+								"15"
+							],
+							"query": [
+								{
+									"key": "ID",
+									"value": "30",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Place Order",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Order ID\r",
+									"pm.test(\"Check orderID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"id\")\r",
+									"})\r",
+									"pm.test(\"Check pet id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of pet id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).id).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected pet id is: \"+JSON.parse(request.data).id,function(){\r",
+									"    pm.expect(JSON.parse(request.data).id).to.be.equal(JSON.parse(responseBody).id)\r",
+									"})\r",
+									"\r",
+									"// Pet ID\r",
+									"pm.test(\"Check pet id exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"petId\")\r",
+									"})\r",
+									"pm.test(\"Check pet id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).petId).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).petId).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of pet id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).petId).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected pet id is: \"+JSON.parse(request.data).petId,function(){\r",
+									"    pm.expect(JSON.parse(request.data).petId).to.be.equal(JSON.parse(responseBody).petId)\r",
+									"})\r",
+									"\r",
+									"// Quantity\r",
+									"pm.test(\"Check quantity exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"quantity\")\r",
+									"})\r",
+									"pm.test(\"Check quantity not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).quantity).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).quantity).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of quantity\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).quantity).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected pet id is: \"+JSON.parse(request.data).quantity,function(){\r",
+									"    pm.expect(JSON.parse(request.data).quantity).to.be.equal(JSON.parse(responseBody).quantity)\r",
+									"})\r",
+									"\r",
+									"\r",
+									"// ShipDate\r",
+									"pm.test(\"Check shipDate exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"shipDate\")\r",
+									"})\r",
+									"pm.test(\"Check shipDate not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).shipDate).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).shipDate).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of shipDate\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).shipDate).to.be.equal('string')\r",
+									"})\r",
+									"const allowedDateFormate=/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}(?:[+-]{1}\\d{2}:\\d{2}|Z)$/;\r",
+									"pm.test(\"Check expected shipDate is: \"+JSON.parse(request.data).shipDate,function(){\r",
+									"    pm.expect(JSON.parse(request.data).shipDate).to.match(allowedDateFormate)\r",
+									"})\r",
+									"\r",
+									"// Status\r",
+									"pm.test(\"Check status exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"status\")\r",
+									"})\r",
+									"pm.test(\"Checkstatus not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of status\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).status).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected status is: \"+JSON.parse(request.data).status,function(){\r",
+									"    pm.expect(JSON.parse(request.data).status).to.be.equal(JSON.parse(responseBody).status)\r",
+									"})\r",
+									"\r",
+									"// Complete\r",
+									"pm.test(\"Check status complete\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"complete\")\r",
+									"})\r",
+									"pm.test(\"Check complete not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).complete).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).complete).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of complete\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).complete).to.be.equal('boolean')\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 20,\r\n  \"petId\": 3,\r\n  \"quantity\": 1,\r\n  \"shipDate\": \"2024-03-16T00:20:44.790Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}store/order",
+							"host": [
+								"{{BaseURL}}store"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Purchase Order By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Order ID\r",
+									"pm.test(\"Check orderID exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"id\")\r",
+									"})\r",
+									"pm.test(\"[Check pet id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).id).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of pet id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).id).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"// Pet ID\r",
+									"pm.test(\"Check petId exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"petId\")\r",
+									"})\r",
+									"pm.test(\"Check pet id not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).petId).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).petId).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of pet id\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).petId).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"// Quantity\r",
+									"pm.test(\"Check quantity exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"quantity\")\r",
+									"})\r",
+									"pm.test(\"Check quantity not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).quantity).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).quantity).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of quantity\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).quantity).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"// ShipDate\r",
+									"pm.test(\"Check shipDate exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"shipDate\")\r",
+									"})\r",
+									"pm.test(\"Check shipDate not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).shipDate).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).shipDate).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of shipDate\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).shipDate).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"// Status\r",
+									"pm.test(\"Check status exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"status\")\r",
+									"})\r",
+									"pm.test(\"Check status not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).status).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of status\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).status).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"\r",
+									"// Complete\r",
+									"pm.test(\"Check status complete\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"complete\")\r",
+									"})\r",
+									"pm.test(\"Check complete not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).complete).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).complete).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check date type of complete\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).complete).to.be.equal('boolean')\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}store/order/20",
+							"host": [
+								"{{BaseURL}}store"
+							],
+							"path": [
+								"order",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Purchase Order By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Code\r",
+									"pm.test(\"Check code exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"code\")\r",
+									"})\r",
+									"pm.test(\"Check code not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"Check data type of code\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).code).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected pet id is: 200\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.be.equal(200)\r",
+									"})\r",
+									"\r",
+									"// Type\r",
+									"pm.test(\"Check Type exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"type\")\r",
+									"})\r",
+									"pm.test(\"Check Type not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"Check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).type).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"// Message\r",
+									"pm.test(\"Check message exists in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"message\")\r",
+									"})\r",
+									"pm.test(\"Check message not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).message).to.be.equal('string')\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}store/order/20",
+							"host": [
+								"{{BaseURL}}store"
+							],
+							"path": [
+								"order",
+								"20"
+							],
+							"query": [
+								{
+									"key": "ID",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create list of users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// User \r",
+									"pm.collectionVariables.set(\"userID\",JSON.parse(request.data)[0].id);\r",
+									"pm.collectionVariables.set(\"username\",JSON.parse(request.data)[0].username);\r",
+									"pm.collectionVariables.set(\"firstName\",JSON.parse(request.data)[0].firstName);\r",
+									"pm.collectionVariables.set(\"lastName\",JSON.parse(request.data)[0].lastName);\r",
+									"pm.collectionVariables.set(\"email\",JSON.parse(request.data)[0].email);\r",
+									"pm.collectionVariables.set(\"password\",JSON.parse(request.data)[0].password);\r",
+									"pm.collectionVariables.set(\"phone\",JSON.parse(request.data)[0].phone);\r",
+									"pm.collectionVariables.set(\"status\",JSON.parse(request.data)[0].status);\r",
+									"\r",
+									"\r",
+									"// Code\r",
+									"pm.test(\"Check code exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"code\")\r",
+									"})\r",
+									"pm.test(\"Check code not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of code\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).code).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check expected pet id is: 200\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.be.equal(200)\r",
+									"})\r",
+									"\r",
+									"// Type\r",
+									"pm.test(\"Check Type exists\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"type\")\r",
+									"})\r",
+									"pm.test(\"Check Type not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).type).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"// Message\r",
+									"pm.test(\"Check expected message exists in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"message\")\r",
+									"})\r",
+									"pm.test(\"Check message not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).message).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected message is: ok \",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.be.equal(\"ok\")\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"id\": 1,\r\n    \"username\": \"menna\",\r\n    \"firstName\": \"menna\",\r\n    \"lastName\": \"mohsen\",\r\n    \"email\": \"menna@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"phone\": \"01010\",\r\n    \"status\": 1\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}user/createWithArray",
+							"host": [
+								"{{BaseURL}}user"
+							],
+							"path": [
+								"createWithArray"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Check username in Response Body', function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property('username');\r",
+									"})\r",
+									"pm.test('Check expected firstname is : '+pm.collectionVariables.get(\"username\"), function () {\r",
+									"    pm.expect(pm.collectionVariables.get(\"username\")).to.be.equal(JSON.parse(responseBody).username);\r",
+									"})\r",
+									"pm.test(\"Check username not null or undefined\",function(){\r",
+									"  pm.expect(JSON.parse(responseBody).username).to.not.be.equal(undefined);\r",
+									"  pm.expect(JSON.parse(responseBody).username).to.not.be.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check username is String\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).username).to.be.equal(\"string\")\r",
+									"})\r",
+									"\r",
+									"pm.test('Check firstname in Response ', function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property('lastName');\r",
+									"})\r",
+									"\r",
+									"pm.test('Check expected firstname is : '+pm.collectionVariables.get(\"firstName\"), function () {\r",
+									"    pm.expect(pm.collectionVariables.get(\"firstName\")).to.be.equal(JSON.parse(responseBody).firstName);\r",
+									"})\r",
+									"pm.test(\"Check firstname not null or undefined\",function(){\r",
+									"  pm.expect(JSON.parse(responseBody).firstName).to.not.be.equal(undefined);\r",
+									"  pm.expect(JSON.parse(responseBody).firstName).to.not.be.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check firstname is String\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).firstName).to.be.equal(\"string\")\r",
+									"})\r",
+									"\r",
+									"pm.test('Check lastName in Response', function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property('lastName');\r",
+									"})\r",
+									"\r",
+									"pm.test('Check expected lastName is : '+pm.collectionVariables.get(\"lastName\"), function () {\r",
+									"    pm.expect(pm.collectionVariables.get(\"lastName\")).to.be.equal(JSON.parse(responseBody).lastName);\r",
+									"})\r",
+									"pm.test(\"Check lastName not null or undefined\",function(){\r",
+									"  pm.expect(JSON.parse(responseBody).lastName).to.not.be.equal(undefined);\r",
+									"  pm.expect(JSON.parse(responseBody).lastName).to.not.be.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check lastName is String\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).lastName).to.be.equal(\"string\")\r",
+									"})\r",
+									"\r",
+									"pm.test('Check userID is exist in Response ', function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property('id');\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check userID not null or undefined\",function(){\r",
+									"  pm.expect(JSON.parse(responseBody).id).to.not.be.equal(undefined);\r",
+									"  pm.expect(JSON.parse(responseBody).id).to.not.be.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check userID is number\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).id).to.be.equal(\"number\")\r",
+									"})\r",
+									"\r",
+									"pm.test('Check email is Exisits in Response Body', function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property('email');\r",
+									"})\r",
+									"\r",
+									"pm.test('Check expected email is : '+pm.collectionVariables.get(\"email\"), function () {\r",
+									"    pm.expect(pm.collectionVariables.get(\"email\")).to.be.equal(JSON.parse(responseBody).email);\r",
+									"})\r",
+									"pm.test(\"Check email not null or undefined\",function(){\r",
+									"  pm.expect(JSON.parse(responseBody).email).to.not.be.equal(undefined);\r",
+									"  pm.expect(JSON.parse(responseBody).email).to.not.be.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check email is string\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).email).to.be.equal(\"string\")\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test('Check password is exist in Response Body', function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property('password');\r",
+									"})\r",
+									"\r",
+									"pm.test('Check expected password is : '+pm.collectionVariables.get(\"password\"), function () {\r",
+									"    pm.expect(pm.collectionVariables.get(\"password\")).to.be.equal(JSON.parse(responseBody).password);\r",
+									"})\r",
+									"pm.test(\"Check password not null or undefined\",function(){\r",
+									"  pm.expect(JSON.parse(responseBody).password).to.not.be.equal(undefined);\r",
+									"  pm.expect(JSON.parse(responseBody).password).to.not.be.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check password is string\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).password).to.be.equal(\"string\")\r",
+									"})\r",
+									"\r",
+									"pm.test('Check phone is exist in Response ', function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property('phone');\r",
+									"})\r",
+									"\r",
+									"pm.test('Check expected phone is : '+pm.collectionVariables.get(\"phone\"), function () {\r",
+									"    pm.expect(pm.collectionVariables.get(\"phone\")).to.be.equal(JSON.parse(responseBody).phone);\r",
+									"})\r",
+									"pm.test(\"Check phone not null or undefined\",function(){\r",
+									"  pm.expect(JSON.parse(responseBody).phone).to.not.be.equal(undefined);\r",
+									"  pm.expect(JSON.parse(responseBody).phone).to.not.be.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check phone is string\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).phone).to.be.equal(\"string\")\r",
+									"})\r",
+									" \r",
+									"pm.test('Check Status is exist in Response ', function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property('userStatus');\r",
+									"})\r",
+									"\r",
+									"pm.test('Check expected Status is : '+pm.collectionVariables.get(\"status\"), function () {\r",
+									"    pm.expect(pm.collectionVariables.get(\"userStatus\")).to.be.equal(JSON.parse(responseBody).status);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check Status not null or undefined\",function(){\r",
+									"  pm.expect(JSON.parse(responseBody).userStatus).to.not.be.equal(undefined);\r",
+									"  pm.expect(JSON.parse(responseBody).userStatus).to.not.be.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check Status is string\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).userStatus).to.be.equal(\"number\")\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}user/menna",
+							"host": [
+								"{{BaseURL}}user"
+							],
+							"path": [
+								"menna"
+							],
+							"query": [
+								{
+									"key": "Username",
+									"value": "menna",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User By Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"pm.test(\"Check code exist in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"code\")\r",
+									"})\r",
+									"pm.test(\"Check code not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of code\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).code).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected pet id is: 200\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.be.equal(200)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check Type exist in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"type\")\r",
+									"})\r",
+									"pm.test(\"Check Type not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).type).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check message exist in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"message\")\r",
+									"})\r",
+									"pm.test(\"Check message not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).message).to.be.equal('string')\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}user/menna",
+							"host": [
+								"{{BaseURL}}user"
+							],
+							"path": [
+								"menna"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "menna",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check code exist in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"code\")\r",
+									"})\r",
+									"pm.test(\"Check code not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of code\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).code).to.be.equal('number')\r",
+									"})\r",
+									"pm.test(\"Check expected pet id is: 200\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.be.equal(200)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check Type exist in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"type\")\r",
+									"})\r",
+									"pm.test(\"Check Type not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).type).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check expected message exist in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"message\")\r",
+									"})\r",
+									"pm.test(\"Check message not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(undefined)\r",
+									"})\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).message).to.be.equal('string')\r",
+									"})\r",
+									"pm.test(\"Check expected message is:\"+JSON.parse(responseBody).message,function(){\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.be.contain(\"logged in user session:\")\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}user/login?username=menna&password=123",
+							"host": [
+								"{{BaseURL}}user"
+							],
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "menna"
+								},
+								{
+									"key": "password",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check code exist in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"code\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check code not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.not.be.equal(undefined)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"check data type of code\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).code).to.be.equal('number')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check expected pet id is: 200\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).code).to.be.equal(200)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check Type exist in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"type\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check Type not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).type).to.not.be.equal(undefined)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).type).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check expected message exist in response\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"message\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Check message not null and not undefined\",function(){\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(null)\r",
+									"    pm.expect(JSON.parse(responseBody).message).to.not.be.equal(undefined)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"check data type of message\",function(){\r",
+									"    pm.expect(typeof JSON.parse(responseBody).message).to.be.equal('string')\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}user/logout",
+							"host": [
+								"{{BaseURL}}user"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {\r",
+					"    pm.response.to.have.status(200);\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Content-Type is present\", function () {\r",
+					"    pm.response.to.have.header(\"Content-Type\");\r",
+					"});\r",
+					"\r",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "userID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "firstName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "lastName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "phone",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "status",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
